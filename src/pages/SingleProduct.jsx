@@ -1,4 +1,3 @@
-import React from 'react'
 import { useLoaderData } from 'react-router-dom'
 import { formatPrice, customFetch, generateAmountOptions } from '../utils'
 import { Link } from 'react-router-dom'
@@ -27,12 +26,14 @@ const SingleProduct = () => {
 
     const dispatch = useDispatch();
     const cartProduct = {
-        cartID: product.id + productColor,
+        cartID: product.id + colorProduct,
         productID: product.id,
         image,
         title,
+        price,
+        amount,
+        colorProduct,
         company,
-        productColor,
     }
 
     const addToCart = () => {
@@ -86,7 +87,6 @@ const SingleProduct = () => {
                         <button className='btn btn-secondary btn-md' onClick={addToCart}>Add to Bag</button>
                     </div>
                 </div>
-
             </div>
         </section >
     )
